@@ -22,6 +22,7 @@ void LCS(string x, string  y, int n, int m) {
             if (x[i - 1] == y[j - 1]) t[i][j] = 1 + t[i - 1][j - 1];
             else t[i][j] = max(t[i - 1][j], t[i][j - 1]);
         }
+    cout << t[n][m] << endl;
 }
 string printLCS(string x, string y, int n, int m) {
     string s = "";
@@ -32,7 +33,10 @@ string printLCS(string x, string y, int n, int m) {
     {
         // if two character at ith and jth position are
         // equal then we simple add them to our resultant string
-        if (x[i - 1] == y[i - 1])  s.push_back(x[i - 1]);
+        if (x[i - 1] == y[i - 1]) {
+            s += x[i - 1];
+            i--, j--;
+        }
         // else we will to the position where we came for example
         // in matrix we have two choice from where we came if two character
         // are not equal at ith position then we simple move to their parent 
@@ -53,8 +57,10 @@ int main()
 {
     string x, y;
     int n, m;
-    cin >> n >> m >> x >> y;
-    memset(t, -1, sizeof(t));
+    // cin >> n >> m >> x >> y;
+    cin >> x >> y;
+    n = x.size();
+    m = y.size();
     LCS(x, y, n, m);
     cout << printLCS(x, y, n, m) << endl;
     return 0;

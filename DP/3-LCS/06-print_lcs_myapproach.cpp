@@ -43,9 +43,10 @@ int main()
 {
     string x, y;
     int n, m;
-    cin >> n >> m >> x >> y;
-    memset(t, -1, sizeof(t));
+    cin >> x >> y;
+    n = x.size();
+    m = y.size();
+    cout << n << " " << m << endl;
     cout << LCS(x, y, n, m) << endl;
-
     return 0;
 }
