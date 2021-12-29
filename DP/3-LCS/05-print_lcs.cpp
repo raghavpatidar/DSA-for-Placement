@@ -33,7 +33,7 @@ string printLCS(string x, string y, int n, int m) {
     {
         // if two character at ith and jth position are
         // equal then we simple add them to our resultant string
-        if (x[i - 1] == y[i - 1]) {
+        if (x[i - 1] == y[j - 1]) {
             s += x[i - 1];
             i--, j--;
         }
