@@ -47,25 +47,22 @@ void king() {
     fo(i, k) {
         int x;cin >> x;
         bool ok = true;
-        int l = 0, r = n;
-        while (l < r)
+        int ans = -1, idx;
+        int l = 0, r = n - 1;
+        while (l <= r)
         {
             int mid = (l + r) / 2;
             if (v[mid] >= x) {
-                r = mid;
+                ans = mid;
+                r = mid - 1;
             }
-            if (v[mid] < x) {
-                l = mid;
+            else {
+                l = mid + 1;
             }
         }
-        if (r == n) {
-            cout << r + 1 << endl;
-        }
-        else {
-            cout << (l + r) / 2 << endl;
-        }
-
-
+        if (ans == -1)cout << n + 1 << endl;
+        else
+            cout << ans + 1 << endl;
     }
 }
 int main()
